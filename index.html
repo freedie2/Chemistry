@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <section>
+    <div class="termins"><big>v - количество вещества, моль</big></div><br>
+    <div class="termins"><big>m - масса, г</big></div><br>
+    <div class="termins"><big>M - молярная масса, г/моль</big></div><br>
+    <div class="termins"><big>Mr - относительная молекулярная масса, а.е.м.</big></div><br>
+    <div class="termins"><big>Ar - относительная атомная масса, а.е.м. = смотри таблицу Менделеева</big></div><br>
+    <div class="termins"><big>D - относительная плотность</big></div><br>
+    <div class="termins"><big>C - молярная концетрация, моль/л</big></div><br>
+    <div class="termins"><big>N - количество частиц</big></div><br>
+    <div class="termins"><big>Nᴀ - число Авогадро = 6.02 * 10²³ 1/моль</big></div><br>
+    <div class="termins"><big>V - обЪём, л</big></div><br>
+    <div class="termins"><big>Vm - молярный объём = 22.4 л/моль</big></div><br>
+    <div class="termins"><big>ω(омега) - массовая доля, %</big></div><br>
+    <div class="termins"><big>η(греческая эта) - выход продукта, %</big></div><br>
+    <div class="termins"><big>m∘ - масса частиц</big></div><br>
+    <div class="termins"><big>N∘ - число частиц</big></div><br>
+  </section>
+  <header>
+    <section class="headText">
+        <button class="mainButton" onclick="show_popap('modal-1')"><h1> Масса - m</h1></button>
+        <button class="mainButton" onclick="show_popap('modal-2')"><h1> Количество вещества - v</h1></button>
+        <button class="mainButton" onclick="show_popap('modal-3')"><h1> Объём - V</h1></button>
+        <button class="mainButton" onclick="show_popap('modal-4')"><h1> Число частиц - N∘</h1></button>
+        <button class="mainButton" onclick="show_popap('modal-5')"><h1> Молярный объём - Vm </h1></button>
+        <button class="mainButton" onclick="show_popap('modal-6')"><h1> Молярная масса - M</h1></button>
+        <button class="mainButton" onclick="show_popap('modal-7')"><h1> Относительная молекулярная масса- Mr</h1></button>
+        <button class="mainButton" onclick="show_popap('modal-8')"><h1> Молярная концетрация - C</h1></button>
+        <button class="mainButton" onclick="show_popap('modal-9')"><h1> Массовая доля - ω</h1></button>
+        <button class="mainButton" onclick="show_popap('modal-10')"><h1> Выход продукта - η</h1></button>
+        <button class="mainButton" onclick="show_popap('modal-11')"><h1> Относительная плотность - D</h1></button>
+        <button class="mainButton" onclick="show_popap('modal-12')"><h1> Число Авогадро - Nᴀ</h1></button>
+    </section>
+  </header>
+  
+
+  <!-- Окно 1 -->
+
+  <div class="overlay" id="modal-1">
+    <div class="flex-popap">
+      <div class="popap">
+        <span class="close_popap"><big>Назад</big></span>
+        <h2><big>Масса - m</big></h2>
+          <div class="button_second">
+              <button class="button_second" onclick="show_popap_second('modal-1-1')"><big>m = v * M</big></button><br>
+              <button class="button_second" onclick="show_popap_second('modal-1-2')"><big>m = V : Vm * M</big></button><br>
+              <button class="button_second" onclick="show_popap_second('modal-1-3')"><big>m = C * M * V</big></button><br>
+              <button class="button_second" onclick="show_popap_second('modal-1-4')"><big>m = N : Nᴀ * M</big></button><br>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула массы 1 -->
+
+  <div class="overlay_second" id="modal-1-1">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>m = v * M</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_1"><big> Введите v:</big> </label><br>
+        <input type="text" class="form-control" id="inp_1"><br>
+        <label for="inp_2"><big>Введите M:</big></label><br>
+        <input type="text" class="form-control" id="inp_2"><br>
+        <button class="result" onclick="m1()"><big>Результат:</big></button><div id="result-m-1"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула массы 2 -->
+
+  <div class="overlay_second" id="modal-1-2">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>m = V : Vm * M</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_3"><big>Введите V: </big></label><br>
+        <input type="text" class="form-control" id="inp_3"><br>
+        <label for="inp_4"><big>Введите Vm:</big></label><br>
+        <input type="text" class="form-control" id="inp_4"><br>
+        <label for="inp_5"><big>Введите M:</big></label><br>
+        <input type="text" class="form-control" id="inp_5"><br>
+        <button class="result" onclick="m2()"><big>Результат:</big></button><div id="result-m-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула массы 3 -->
+
+  <div class="overlay_second" id="modal-1-3">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>m = C * M * V</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_6"><big>Введите C:</big> </label><br>
+        <input type="text" class="form-control" id="inp_6"><br>
+        <label for="inp_7"><big>Введите M:</big></label><br>
+        <input type="text" class="form-control" id="inp_7"><br>
+        <label for="inp_8"><big>Введите V:</big></label><br>
+        <input type="text" class="form-control" id="inp_8"><br>
+        <button class="result" onclick="m3()"><big>Результат:</big></button><div id="result-m-3"></div>
+      </div>
+    </div>
+  </div>
+
+ <!-- Формула массы 4 -->
+
+ <div class="overlay_second" id="modal-1-4">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>m = N : Nᴀ * M</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_9"><big>Введите N:</big> </label><br>
+      <input type="text" class="form-control" id="inp_9"><br>
+      <label for="inp_10"><big>Введите Nᴀ:</big></label><br>
+      <input type="text" class="form-control" id="inp_10"><br>
+      <label for="inp_11"><big>Введите M:</big></label><br>
+      <input type="text" class="form-control" id="inp_11"><br>
+      <button class="result" onclick="m4()"><big>Результат:</big></button><div id="result-m-4"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  <!-- Окно 2 -->
+
+  <div class="overlay" id="modal-2">
+    <div class="flex-popap">
+      <div class="popap">
+        <span class="close_popap"><big>Назад</big></span>
+        <h2><big>Количество вещества - v</big></h2>
+          <button class="button_second" onclick="show_popap_second('modal-2-1')"><big>v = m : M</big></button><br>
+          <button class="button_second" onclick="show_popap_second('modal-2-2')"><big>v = V : Vm</big></button><br>
+          <button class="button_second" onclick="show_popap_second('modal-2-3')"><big>v = N : Nᴀ</big></button><br>
+          <button class="button_second" onclick="show_popap_second('modal-2-4')"><big>v = Q : Qm</big></button><br>
+      </div>
+    </div>
+  </div>
+
+<!-- Формула количества вещества 1 -->
+
+  <div class="overlay_second" id="modal-2-1">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>v = m : M</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_12"><big> Введите m:</big> </label><br>
+        <input type="text" class="form-control" id="inp_12"><br>
+        <label for="inp_13"><big>Введите M:</big></label><br>
+        <input type="text" class="form-control" id="inp_13"><br>
+        <button class="result" onclick="n1()"><big>Результат:</big></button><div id="result-n-1"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула количества вещества 2 -->
+
+  <div class="overlay_second" id="modal-2-2">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>v = V : Vm</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_14"><big> Введите V:</big> </label><br>
+        <input type="text" class="form-control" id="inp_14"><br>
+        <label for="inp_15"><big>Введите Vm:</big></label><br>
+        <input type="text" class="form-control" id="inp_15"><br>
+        <button class="result" onclick="n2()"><big>Результат:</big></button><div id="result-n-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула количества вещества 3 -->
+
+  <div class="overlay_second" id="modal-2-3">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>v = N : Nᴀ</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_16"><big> Введите N:</big> </label><br>
+        <input type="text" class="form-control" id="inp_16"><br>
+        <label for="inp_17"><big>Введите Nᴀ:</big></label><br>
+        <input type="text" class="form-control" id="inp_17"><br>
+        <button class="result" onclick="n3()"><big>Результат:</big></button><div id="result-n-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула количества вещества 4 -->
+
+  <div class="overlay_second" id="modal-2-4">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>v = Q : Qm</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_18"><big> Введите Q:</big> </label><br>
+        <input type="text" class="form-control" id="inp_18"><br>
+        <label for="inp_19"><big>Введите Qm:</big></label><br>
+        <input type="text" class="form-control" id="inp_19"><br>
+        <button class="result" onclick="n4()"><big>Результат:</big></button><div id="result-n-4"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- Окно 3 -->
+
+  <div class="overlay" id="modal-3">
+      <div class="flex-popap">
+        <div class="popap">
+          <span class="close_popap"><big>Назад</big></span>
+          <h2><big>ОбЪём - V</big></h2>
+            <button class="button_second" onclick="show_popap_second('modal-3-1')"><big>V = n : Vm</big></button><br>
+            <button class="button_second" onclick="show_popap_second('modal-3-2')"><big>V = m : M * Vm</big></button><br>
+            <button class="button_second" onclick="show_popap_second('modal-3-3')"><big>V = m : p</big></button><br>
+            <button class="button_second" onclick="show_popap_second('modal-3-4')"><big>V = N : Nᴀ * Vm</big></button><br>
+        </div>
+      </div>
+  </div>
+
+  <!-- Формула объёма 1 -->
+
+  <div class="overlay_second" id="modal-3-1">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>V = n : Vm</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_20"><big> Введите n:</big> </label><br>
+        <input type="text" class="form-control" id="inp_20"><br>
+        <label for="inp_21"><big>Введите Vm:</big></label><br>
+        <input type="text" class="form-control" id="inp_21"><br>
+        <button class="result" onclick="V1()"><big>Результат:</big></button><div id="result-V-1"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула объёма 2 -->
+
+  <div class="overlay_second" id="modal-3-2">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>V = m : M * Vm</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_22"><big> Введите m:</big> </label><br>
+        <input type="text" class="form-control" id="inp_22"><br>
+        <label for="inp_23"><big>Введите M:</big></label><br>
+        <input type="text" class="form-control" id="inp_23"><br>
+        <label for="inp_24"><big>Введите Vm:</big></label><br>
+        <input type="text" class="form-control" id="inp_24"><br>
+        <button class="result" onclick="V2()"><big>Результат:</big></button><div id="result-V-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула объёма 3 -->
+
+  <div class="overlay_second" id="modal-3-3">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>V = m : p</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_25"><big> Введите m:</big> </label><br>
+        <input type="text" class="form-control" id="inp_25"><br>
+        <label for="inp_26"><big>Введите p:</big></label><br>
+        <input type="text" class="form-control" id="inp_26"><br>
+        <button class="result" onclick="V3()"><big>Результат:</big></button><div id="result-V-3"></div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Формула объёма 4 -->
+
+   <div class="overlay_second" id="modal-3-4">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>V = N : Nᴀ * Vm</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_27"><big> Введите N:</big> </label><br>
+        <input type="text" class="form-control" id="inp_27"><br>
+        <label for="inp_28"><big>Введите Nᴀ:</big></label><br>
+        <input type="text" class="form-control" id="inp_28"><br>
+        <label for="inp_29"><big>Введите Vm:</big></label><br>
+        <input type="text" class="form-control" id="inp_29"><br>
+        <button class="result" onclick="V4()"><big>Результат:</big></button><div id="result-V-4"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- Окно 4 -->
+
+  <div class="overlay" id="modal-4">
+      <div class="flex-popap">
+        <div class="popap">
+          <span class="close_popap"><big>Назад</big></span>
+          <h2><big>Число частиц - N∘</big></h2>
+            <button class="button_second" onclick="show_popap_second('modal-4-1')"><big>N∘ = m : m∘</big></button><br>
+            <button class="button_second" onclick="show_popap_second('modal-4-2')"><big>N∘ = v * Nᴀ</big></button><br>
+            <button class="button_second" onclick="show_popap_second('modal-4-3')"><big>N∘ = m : M * Nᴀ</big></button><br>
+            <button class="button_second" onclick="show_popap_second('modal-4-4')"><big>N∘ = V : Vm * Nᴀ</big></button><br>
+        </div>
+      </div>
+  </div>
+
+<!-- Формула числа частиц 1 -->
+
+<div class="overlay_second" id="modal-4-1">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>N∘ = m : m∘</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_30"><big> Введите m:</big> </label><br>
+      <input type="text" class="form-control" id="inp_30"><br>
+      <label for="inp_31"><big>Введите m∘:</big></label><br>
+      <input type="text" class="form-control" id="inp_31"><br>
+      <button class="result"onclick="N01()"><big>Результат:</big></button><div id="result-N0-1"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Формула числа частиц 2 -->
+
+<div class="overlay_second" id="modal-4-2">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>N∘ = v * Nᴀ</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_32"><big> Введите v:</big> </label><br>
+      <input type="text" class="form-control" id="inp_32"><br>
+      <label for="inp_33"><big>Введите Nᴀ:</big></label><br>
+      <input type="text" class="form-control" id="inp_33"><br>
+      <button class="result" onclick="N02()"><big>Результат:</big></button><div id="result-N0-2"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Формула числа частиц 3 -->
+
+<div class="overlay_second" id="modal-4-3">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>N∘ = m : M * Nᴀ</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_34"><big> Введите m:</big> </label><br>
+      <input type="text" class="form-control" id="inp_34"><br>
+      <label for="inp_35"><big>Введите M:</big></label><br>
+      <input type="text" class="form-control" id="inp_35"><br>
+      <label for="inp_36"><big>Введите Nᴀ:</big></label><br>
+      <input type="text" class="form-control" id="inp_36"><br>
+      <button class="result" onclick="N03()"><big>Результат:</big></button><div id="result-N0-3"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Формула числа частиц 4 -->
+
+<div class="overlay_second" id="modal-4-4">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>N∘ = V : Vm * Nᴀ</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_37"><big> Введите V:</big> </label><br>
+      <input type="text" class="form-control" id="inp_37"><br>
+      <label for="inp_38"><big>Введите Vm:</big></label><br>
+      <input type="text" class="form-control" id="inp_38"><br>
+      <label for="inp_39"><big>Введите Nᴀ:</big></label><br>
+      <input type="text" class="form-control" id="inp_39"><br>
+      <button class="result" onclick="N04()"><big>Результат:</big></button><div id="result-N0-4"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  <!-- Окно 5 -->
+
+  <div class="overlay" id="modal-5">
+      <div class="flex-popap">
+        <div class="popap">
+          <span class="close_popap"><big>Назад</big></span>
+          <h2><big>Молярный обЪём - Vm</big></h2>
+            <button class="button_second" onclick="show_popap_second('modal-5-1')"><big>Vm = V : v</big></button><br>
+            <button class="button_second" onclick="show_popap_second('modal-5-2')"><big>Vm = V * M : m</big></button><br>
+            <button class="button_second" onclick="show_popap_second('modal-5-3')"><big>Vm = M : p</big></button><br>
+            <button class="button_second" onclick="show_popap_second('modal-5-4')"><big>Vm = V * Nᴀ : N∘</big></button><br>
+        </div>
+      </div>
+  </div>
+
+  <!-- Формула молярного объёма 1 -->
+
+  <div class="overlay_second" id="modal-5-1">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>Vm = V : v</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_40"><big> Введите V:</big> </label><br>
+        <input type="text" class="form-control" id="inp_40"><br>
+        <label for="inp_41"><big>Введите v:</big></label><br>
+        <input type="text" class="form-control" id="inp_41"><br>
+        <button class="result" onclick="Vm1()"><big>Результат:</big></button><div id="result-Vm-1"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула молярного объёма 2 -->
+
+  <div class="overlay_second" id="modal-5-2">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>Vm = V * M : m</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_42"><big> Введите V:</big> </label><br>
+        <input type="text" class="form-control" id="inp_42"><br>
+        <label for="inp_43"><big>Введите M:</big></label><br>
+        <input type="text" class="form-control" id="inp_43"><br>
+        <label for="inp_44"><big>Введите m:</big></label><br>
+        <input type="text" class="form-control" id="inp_44"><br>
+        <button class="result" onclick="Vm2()"><big>Результат:</big></button><div id="result-Vm-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула молярного объёма 3 -->
+
+  <div class="overlay_second" id="modal-5-3">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>Vm = M : p</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_45"><big> Введите M:</big> </label><br>
+        <input type="text" class="form-control" id="inp_45"><br>
+        <label for="inp_46"><big>Введите p:</big></label><br>
+        <input type="text" class="form-control" id="inp_46"><br>
+        <button class="result" onclick="Vm3()"><big>Результат:</big></button><div id="result-Vm-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула молярного объёма 4 -->
+
+  <div class="overlay_second" id="modal-5-4">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>Vm = V * Nᴀ : N∘</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_47"><big> Введите V:</big> </label><br>
+        <input type="text" class="form-control" id="inp_47"><br>
+        <label for="inp_48"><big>Введите Nᴀ:</big></label><br>
+        <input type="text" class="form-control" id="inp_48"><br>
+        <label for="inp_49"><big>Введите N∘:</big></label><br>
+        <input type="text" class="form-control" id="inp_49"><br>
+        <button class="result" onclick="Vm4()"><big>Результат:</big></button><div id="result-Vm-4"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- Окно 6 -->
+
+  <div class="overlay" id="modal-6">
+      <div class="flex-popap">
+        <div class="popap">
+          <span class="close_popap"><big>Назад</big></span>
+          <h2><big>Молярная масса - M</big></h2>
+              <button class="button_second" onclick="show_popap_second('modal-6-1')"><big>M = m : v</big></button><br>
+              <button class="button_second" onclick="show_popap_second('modal-6-2')"><big>M = Vm * p</big></button><br>
+              <button class="button_second" onclick="show_popap_second('modal-6-3')"><big>M = m∘ * Nᴀ</big></button><br>
+              <button class="button_second" onclick="show_popap_second('modal-6-4')"><big>M = m * Vm : V</big></button><br>
+              <button class="button_second" onclick="show_popap_second('modal-6-5')"><big>M = m * Nᴀ : N∘</big></button><br>
+        </div>
+      </div>
+  </div>
+
+ <!-- Формула молярной массы 1 -->
+
+ <div class="overlay_second" id="modal-6-1">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>M = m : v</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_50"><big> Введите m:</big></label><br>
+      <input type="text" class="form-control" id="inp_50"><br>
+      <label for="inp_51"><big>Введите v:</big></label><br>
+      <input type="text" class="form-control" id="inp_51"><br>
+      <button class="result" onclick="M1()"><big>Результат:</big></button><div id="result-M-1"></div>
+    </div>
+  </div>
+ </div>
+
+ <!-- Формула молярной массы 2 -->
+
+  <div class="overlay_second" id="modal-6-2">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>M = Vm * p</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_52"><big> Введите Vm:</big> </label><br>
+        <input type="text" class="form-control" id="inp_52"><br>
+        <label for="inp_53"><big>Введите p:</big></label><br>
+        <input type="text" class="form-control" id="inp_53"><br>
+        <button class="result" onclick="M2()"><big>Результат:</big></button><div id="result-M-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула молярной массы 3 -->
+
+  <div class="overlay_second" id="modal-6-3">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>M = m∘ * Nᴀ</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_54"><big> Введите m∘:</big> </label><br>
+        <input type="text" class="form-control" id="inp_54"><br>
+        <label for="inp_55"><big>Введите Nᴀ:</big></label><br>
+        <input type="text" class="form-control" id="inp_55"><br>
+        <button class="result" onclick="M3()"><big>Результат:</big></button><div id="result-M-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула молярной массы 4 -->
+
+  <div class="overlay_second" id="modal-6-4">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>M = m * Vm : V</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_56"><big> Введите m:</big> </label><br>
+        <input type="text" class="form-control" id="inp_56"><br>
+        <label for="inp_57"><big> Введите Vm:</big> </label><br>
+        <input type="text" class="form-control" id="inp_57"><br>
+        <label for="inp_58"><big>Введите V:</big></label><br>
+        <input type="text" class="form-control" id="inp_58"><br>
+        <button class="result" onclick="M4()"><big>Результат:</big></button><div id="result-M-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула молярной массы 5 -->
+
+  <div class="overlay_second" id="modal-6-5">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>M = m * Nᴀ : N∘</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_59"><big> Введите m:</big> </label><br>
+        <input type="text" class="form-control" id="inp_59"><br>
+        <label for="inp_60"><big> Введите Nᴀ:</big> </label><br>
+        <input type="text" class="form-control" id="inp_60"><br>
+        <label for="inp_61"><big>Введите N∘:</big></label><br>
+        <input type="text" class="form-control" id="inp_61"><br>
+        <button  class="result"onclick="M5()"><big>Результат:</big></button><div id="result-M-5"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- Окно 7 -->
+
+  <div class="overlay" id="modal-7">
+      <div class="flex-popap">
+        <div class="popap">
+          <span class="close_popap"><big>Назад</big></span>
+          <h2><big>Относительная молекулярная масса- Mr</big></h2>
+              <button class="button_second" onclick="show_popap_second('modal-7-1')"><big>Mr = M(газ) * D(газ)</big></button><br>
+              <button class="button_second" onclick="show_popap_second('modal-7-2')"><big>Mr(AₓBₐ) = x * Ar(A) + a * Ar(B)</big></button><br>
+        </div>
+      </div>
+  </div>
+
+  <!-- Формула относительной молекулярной массы 1 -->
+
+  <div class="overlay_second" id="modal-7-1">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>Mr = M(газ) * D(газ)</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_62"><big> Введите M(газ):</big> </label><br>
+        <input type="text" class="form-control" id="inp_62"><br>
+        <label for="inp_63"><big>Введите D(газ):</big></label><br>
+        <input type="text" class="form-control" id="inp_63"><br>
+        <button class="result" onclick="Mr1()"><big>Результат:</big></button><div id="result-Mr-1"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Формула относительной молекулярной массы 2 -->
+
+  <div class="overlay_second" id="modal-7-2">
+    <div class="flex-popap">
+      <div class="popap">
+        <div class="headFormula"><big>Mr(AₓBₐ) = x * Ar(A) + a * Ar(B)</big></div><span class="close_popap_second"><big>Назад</big></span>
+        <label for="inp_64"><big> Введите индекс x:</big> </label><br>
+        <input type="text" class="form-control" id="inp_64"><br>
+        <label for="inp_65"><big>Введите индекс a:</big></label><br>
+        <input type="text" class="form-control" id="inp_65"><br>
+        <label for="inp_66"><big> Введите Ar(A):</big> </label><br>
+        <input type="text" class="form-control" id="inp_66"><br>
+        <label for="inp_67"><big>Введите Ar(B):</big></label><br>
+        <input type="text" class="form-control" id="inp_67"><br>
+        <button class="result" onclick="Mr2()"><big>Результат:</big></button><div id="result-Mr-2"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- Окно 8 -->
+
+  <div class="overlay" id="modal-8">
+    <div class="flex-popap">
+      <div class="popap">
+        <span class="close_popap"><big>Назад</big></span>
+        <h2><big>Молярная концетрация - C</big></h2>
+            <button class="button_second" onclick="show_popap_second('modal-8-1')"><big>C = n : V(раствора)</big></button><br>
+      </div>
+    </div>
+</div>
+
+<!-- Формула молярной концетрации 1  -->
+
+<div class="overlay_second" id="modal-8-1">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>C = n : V(раствора)</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_68"><big> Введите n:</big> </label><br>
+      <input type="text" class="form-control" id="inp_68"><br>
+      <label for="inp_69"><big>Введите V(раствора):</big></label><br>
+      <input type="text" class="form-control" id="inp_69"><br>
+      <button class="result" onclick="C1()"><big>Результат:</big></button><div id="result-C-1"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Окно 9 -->
+
+<div class="overlay" id="modal-9">
+  <div class="flex-popap">
+    <div class="popap">
+      <span class="close_popap"><big>Назад</big></span>
+      <h2><big>Массовая доля - ω</big></h2>
+          <button class="button_second" onclick="show_popap_second('modal-9-1')"><big>ω = Ar * N(в соединении) : Mr</big></button><br>
+          <button class="button_second" onclick="show_popap_second('modal-9-2')"><big>ω = m(вещества) : m(раствора) * 100%</big></button><br>
+    </div>
+  </div>
+</div>
+
+<!-- Формула массовой доли 1 -->
+
+<div class="overlay_second" id="modal-9-1">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>ω = Ar * N(в соединении) : Mr</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_70"><big> Введите Ar:</big> </label><br>
+      <input type="text" class="form-control" id="inp_70"><br>
+      <label for="inp_71"><big> Введите N:</big> </label><br>
+      <input type="text" class="form-control" id="inp_71"><br>
+      <label for="inp_72"><big>Введите Mr:</big></label><br>
+      <input type="text" class="form-control" id="inp_72"><br>
+      <button class="result" onclick="massShare1()"><big>Результат:</big></button><div id="result-massShare-1"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Формула массовой доли 2 -->
+
+<div class="overlay_second" id="modal-9-2">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>ω = m(вещества) : m(раствора) * 100%</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_73"><big> Введите m(вещества):</big> </label><br>
+      <input type="text" class="form-control" id="inp_73"><br>
+      <label for="inp_74"><big> Введите m(раствора):</big> </label><br>
+      <input type="text" class="form-control" id="inp_74"><br>
+      <button class="result" onclick="massShare2()"><big>Результат:</big></button><div id="result-massShare-2"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Окно 10 -->
+
+<div class="overlay" id="modal-10">
+  <div class="flex-popap">
+    <div class="popap">
+      <span class="close_popap"><big>Назад</big></span>
+      <h2><big>Выход продукта - η</big></h2>
+        <button class="button_second" onclick="show_popap_second('modal-10-1')"><big>η = m(практическая) : m(теоретическая) * 100%</big></button><br>
+        <button class="button_second" onclick="show_popap_second('modal-10-2')"><big>η = V(практический) : V(теоретический) * 100%</big></button><br>
+        <button class="button_second" onclick="show_popap_second('modal-10-3')"><big>η = n(практическое) : n(теоретическое) * 100%</big></button><br>
+    </div>
+  </div>
+</div>
+
+<!-- Формула выхода продукта 1 -->
+
+<div class="overlay_second" id="modal-10-1">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>η = m(практическая) : m(теоретическая) * 100%</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_75"><big> Введите m(практическая):</big> </label><br>
+      <input type="text" class="form-control" id="inp_75"><br>
+      <label for="inp_76"><big> Введите m(теоретическая):</big> </label><br>
+      <input type="text" class="form-control" id="inp_76"><br>
+      <button class="result" onclick="exit1()"><big>Результат:</big></button><div id="result-exit-1"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Формула выхода продукта 2 -->
+
+<div class="overlay_second" id="modal-10-2">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>η = V(практический) : V(теоретический) * 100%</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_77"><big> Введите V(практический):</big> </label><br>
+      <input type="text" class="form-control" id="inp_77"><br>
+      <label for="inp_78"><big> Введите V(теоретический):</big> </label><br>
+      <input type="text" class="form-control" id="inp_78"><br>
+      <button class="result" onclick="exit2()"><big>Результат:</big></button><div id="result-exit-2"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Формула выхода продукта 3 -->
+
+<div class="overlay_second" id="modal-10-3">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>η = n(практическое) : n(теоретическое) * 100%</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_79"><big> Введите n(практическое):</big> </label><br>
+      <input type="text" class="form-control" id="inp_79"><br>
+      <label for="inp_80"><big> Введите n(теоретическое):</big> </label><br>
+      <input type="text" class="form-control" id="inp_80"><br>
+      <button class="result" onclick="exit3()"><big>Результат:</big></button><div id="result-exit-3"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Окно 11 -->
+
+<div class="overlay" id="modal-11">
+  <div class="flex-popap">
+    <div class="popap">
+      <span class="close_popap"><big>Назад</big></span>
+      <h2><big>Относительная плотность - D</big></h2>
+        <button class="button_second" onclick="show_popap_second('modal-11-1')"><big>D(газ) = M : M(газ)</big></button><br>
+        <button class="button_second" onclick="show_popap_second('modal-11-2')"><big>D = p₁ : p₂</big></button><br>
+        <button class="button_second" onclick="show_popap_second('modal-11-3')"><big>D = M₁ : M₂</big></button><br>
+        <button class="button_second" onclick="show_popap_second('modal-11-4')"><big>D = Mr₁ : Mr₂</big></button><br>
+    </div>
+  </div>
+</div>
+
+<!-- Формула относительной плотности 1 -->
+
+<div class="overlay_second" id="modal-11-1">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>D(газ) = M : M(газ)</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_81"><big> Введите M:</big> </label><br>
+      <input type="text" class="form-control" id="inp_81"><br>
+      <label for="inp_82"><big> Введите M(газ):</big> </label><br>
+      <input type="text" class="form-control" id="inp_82"><br>
+      <button class="result" onclick="D1()"><big>Результат:</big></button><div id="result-D-1"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Формула относительной плотности 2 -->
+
+<div class="overlay_second" id="modal-11-2">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>D = p₁ : p₂</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_83"><big> Введите p₁:</big> </label><br>
+      <input type="text" class="form-control" id="inp_83"><br>
+      <label for="inp_84"><big> Введите p₂:</big> </label><br>
+      <input type="text" class="form-control" id="inp_84"><br>
+      <button class="result" onclick="D2()"><big>Результат:</big></button><div id="result-D-2"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Формула относительной плотности 3 -->
+
+<div class="overlay_second" id="modal-11-3">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>D = M₁ : M₂</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_85"><big> Введите M₁:</big> </label><br>
+      <input type="text" class="form-control" id="inp_85"><br>
+      <label for="inp_86"><big> Введите M₂:</big> </label><br>
+      <input type="text" class="form-control" id="inp_86"><br>
+      <button class="result" onclick="D3()"><big>Результат:</big></button><div id="result-D-3"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Формула относительной плотности 4 -->
+
+<div class="overlay_second" id="modal-11-4">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>D = Mr₁ : Mr₂</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_87"><big> Введите Mr₁:</big> </label><br>
+      <input type="text" class="form-control" id="inp_87"><br>
+      <label for="inp_88"><big> Введите Mr₂:</big> </label><br>
+      <input type="text" class="form-control" id="inp_88"><br>
+      <button class="result" onclick="D4()"><big>Результат:</big></button><div id="result-D-4"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Окно 12 -->
+
+<div class="overlay" id="modal-12">
+  <div class="flex-popap">
+    <div class="popap">
+      <span class="close_popap"><big>Назад</big></span>
+      <h2><big>Число Авогадро - Nᴀ</big></h2>
+        <button class="button_second" onclick="show_popap_second('modal-12-1')"><big>Nᴀ = N∘ : v</big></button><br>
+        <button class="button_second" onclick="show_popap_second('modal-12-2')"><big>Nᴀ = M : m * N∘</big></button><br>
+        <button class="button_second" onclick="show_popap_second('modal-12-3')"><big>Nᴀ = N∘ * Vm : V</big></button><br>
+        <button class="button_second" onclick="show_popap_second('modal-12-4')"><big>Nᴀ = M : m∘</big></button><br>
+    </div>
+  </div>
+</div>
+
+<!-- Формула числа Авогадро 1-->
+
+<div class="overlay_second" id="modal-12-1">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>Nᴀ = N∘ : v</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_88"><big> Введите N∘:</big> </label><br>
+      <input type="text" class="form-control" id="inp_88"><br>
+      <label for="inp_89"><big> Введите v:</big> </label><br>
+      <input type="text" class="form-control" id="inp_89"><br>
+      <button class="result" onclick="Na1()"><big>Результат:</big></button><div id="result-Na-1"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Формула числа Авогадро 2-->
+
+<div class="overlay_second" id="modal-12-2">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>Nᴀ = M : m * N∘</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_90"><big> Введите M:</big> </label><br>
+      <input type="text" class="form-control" id="inp_90"><br>
+      <label for="inp_91"><big> Введите m:</big> </label><br>
+      <input type="text" class="form-control" id="inp_91"><br>
+      <label for="inp_92"><big> Введите N∘:</big> </label><br>
+      <input type="text" class="form-control" id="inp_93"><br>
+      <button class="result" onclick="Na2()"><big>Результат:</big></button><div id="result-Na-2"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Формула числа Авогадро 3-->
+
+<div class="overlay_second" id="modal-12-3">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>Nᴀ = N∘ * Vm : V</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_94"><big> Введите N∘:</big> </label><br>
+      <input type="text" class="form-control" id="inp_94"><br>
+      <label for="inp_95"><big> Введите Vm:</big> </label><br>
+      <input type="text" class="form-control" id="inp_95"><br>
+      <label for="inp_96"><big> Введите V:</big> </label><br>
+      <input type="text" class="form-control" id="inp_96"><br>
+      <button class="result" onclick="Na3()"><big>Результат:</big></button><div id="result-Na-3"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Формула числа Авогадро 4-->
+
+<div class="overlay_second" id="modal-12-4">
+  <div class="flex-popap">
+    <div class="popap">
+      <div class="headFormula"><big>Nᴀ = M : m∘</big></div><span class="close_popap_second"><big>Назад</big></span>
+      <label for="inp_97"><big> Введите M:</big> </label><br>
+      <input type="text" class="form-control" id="inp_97"><br>
+      <label for="inp_98"><big> Введите m∘:</big> </label><br>
+      <input type="text" class="form-control" id="inp_98"><br>
+      <button class="result" onclick="Na4()"><big>Результат:</big></button><div id="result-Na-4"></div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>

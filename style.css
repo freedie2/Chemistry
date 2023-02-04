@@ -1,0 +1,127 @@
+body{
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX7D1DvBTf0GyMAPWGz01i7jUXH-oCJXCyvw&usqp=CAU);
+  background-size:cover;
+}
+button{
+    margin-top: 10px;
+}
+.headText{
+    width: 33%;
+    line-height: 80px;
+}
+header{
+    min-width: 600px;
+    max-width: 600px;
+}
+.popap{
+    height: 20%;
+    width: 80% ;
+}
+.overlay {
+    position:fixed;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.6);
+    display: none;
+    animation: start 0.4s;
+    
+}
+.overlay_second{
+    position: fixed;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.6);
+    display: none;
+    animation: start 0.4s;
+}
+.overlay_second.active {
+    display: block;
+}
+.overlay_second .flex-popap {
+    height: 100%;
+    width: 320px;
+    margin-top: 140%;
+}
+.overlay_second .flex-popap .popap {
+    position: relative;
+    background-color: #fff;
+    padding: 35px 25px;
+    margin: 0 10px;
+    max-width: 450px;
+    margin-top: 33%;
+    overflow: auto;
+}
+.overlay.active {
+    display: block;
+}
+.overlay .flex-popap {
+    height: 100%;
+    width: 320px;
+    margin-top: 140%;
+}
+.overlay .flex-popap .popap {
+    position: relative;
+    background-color: #fff;
+    padding: 35px 25px;
+    margin: 0 10px;
+    max-width: 450px;
+    overflow: auto;
+}
+.popap span {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+ @keyframes start {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+.mainButton{
+  width: 150%;
+  height: 200%;
+}
+.headFormula{
+    color: rgb(0, 68, 255);
+    
+}
+.termins{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-size: larger;
+    width:310px;
+}
+.button_second{
+    width: 260px;
+    height: 50px;
+    font-size: 20px;
+}
+.form-control{
+    width: 270px;
+    height: 30px;
+    font-size: 35px;
+    color:green ;
+}
+.result{
+    width: 150px ;
+    height: 50px;
+}
+#result-m-1, #result-m-2, #result-m-3, #result-m-4, #result-n-1,
+#result-n-2, #result-n-3, #result-n-4, #result-V-1, #result-N0-3,
+#result-V-2, #result-V-3, #result-V-4, #result-N0-1, #result-N0-2,
+#result-N0-4, #result-Vm-1, #result-Vm-2, #result-Vm-3, #result-Vm-4, 
+#result-M-1, #result-M-2, #result-M-3, #result-M-4, #result-M-5,
+#result-Mr-1, #result-Mr-2, #result-C-1, #result-massShare-1, 
+#result-massShare-2, #result-exit-1, #result-exit-2, #result-exit-3, 
+#result-D-1, #result-D-2, #result-D-3, #result-D-4, #result-Na-1, 
+#result-Na-2, #result-Na-3, #result-Na-4{
+    font-size: 45px;
+}
