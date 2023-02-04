@@ -1,6 +1,8 @@
 body{
   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX7D1DvBTf0GyMAPWGz01i7jUXH-oCJXCyvw&usqp=CAU);
   background-size:cover;
+  overflow-x: hidden; 
+  width: 5000px;
 }
 button{
     margin-top: 10px;
@@ -63,7 +65,7 @@ header{
 .overlay .flex-popap {
     height: 100%;
     width: 320px;
-    margin-top: 140%;
+    margin-top: 20%;
 }
 .overlay .flex-popap .popap {
     position: relative;
